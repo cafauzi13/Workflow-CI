@@ -2,7 +2,7 @@ name: Machine Learning CI
 
 on:
   push:
-    branches: [ main ] # Akan jalan setiap kamu push ke GitHub
+    branches: [ main ]
 
 jobs:
   train:
@@ -22,6 +22,5 @@ jobs:
 
     - name: Run MLflow Project
       run: |
-        # Berpindah ke folder MLProject lalu jalankan mlflow run di titik tersebut
-        cd MLProject
+        cd "MLProject (folder)"
         mlflow run . --env-manager local
