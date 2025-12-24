@@ -8,7 +8,7 @@ from sklearn.metrics import accuracy_score
 def train_model():
     # 1. Load data - Pastikan nama file ini ada di folder MLProject
     # Kamu bisa ganti ke 'titanic_preprocessed.csv' jika itu nama filemu
-    df = pd.read_csv('titanic_clean.csv') 
+    df = pd.read_csv('titanic_preprocessed.csv') 
     
     X = df.drop('survived', axis=1)
     y = df['survived']
