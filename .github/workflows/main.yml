@@ -19,4 +19,4 @@ jobs:
     - name: Run MLflow Project
       run: |
         # Menjalankan project dari folder MLProject
-        mlflow run MLProject --no-conda
+        mlflow run MLProject --env-manager local
