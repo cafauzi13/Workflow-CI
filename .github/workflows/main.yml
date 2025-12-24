@@ -8,7 +8,8 @@ jobs:
   train:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - name: Checkout Repository
+      uses: actions/checkout@v3
 
     - name: Set up Python
       uses: actions/setup-python@v4
@@ -21,5 +22,6 @@ jobs:
 
     - name: Run MLflow Project
       run: |
-        # Menggunakan ./ agar terbaca sebagai path lokal dan --env-manager local sebagai pengganti --no-conda
-        mlflow run ./MLProject --env-manager local
+        # Berpindah ke folder MLProject lalu jalankan mlflow run di titik tersebut
+        cd MLProject
+        mlflow run . --env-manager local
