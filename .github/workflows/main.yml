@@ -9,14 +9,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
+
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
         python-version: '3.12.7'
+
     - name: Install dependencies
       run: |
         pip install mlflow scikit-learn pandas numpy
+
     - name: Run MLflow Project
       run: |
-        # Menjalankan project dari folder MLProject
-        mlflow run MLProject --env-manager local
+        # Menggunakan ./ agar terbaca sebagai path lokal dan --env-manager local sebagai pengganti --no-conda
+        mlflow run ./MLProject --env-manager local
