@@ -1,0 +1,22 @@
+name: Machine Learning CI
+
+on:
+  push:
+    branches: [ main ] # Akan jalan setiap kamu push ke GitHub
+
+jobs:
+  train:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.12.7'
+    - name: Install dependencies
+      run: |
+        pip install mlflow scikit-learn pandas numpy
+    - name: Run MLflow Project
+      run: |
+        # Menjalankan project dari folder MLProject
+        mlflow run Workflow-CI/MLProject --no-conda
